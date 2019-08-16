@@ -483,6 +483,10 @@ export default function* WorkspaceSaga(): SagaIterator {
         case ExternalLibraryName.MACHINELEARNING:
           (window as any).loadLib('MACHINELEARNING');
           break;
+        case ExternalLibraryName.ALL:
+          (window as any).loadLib('CURVES');
+          (window as any).getReadyWebGLForCanvas('curve');
+          break;
       }
     }
     const globals: Array<[string, any]> = action.payload.library.globals as Array<[string, any]>;
